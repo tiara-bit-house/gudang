@@ -1,0 +1,18 @@
+CREATE DATABASE gudang;
+USE gudang;
+
+CREATE TABLE kategori (
+	id_kategori INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` VARCHAR(80) NOT NULL
+);
+
+CREATE TABLE barang (
+	id_barang INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id_kategori INT NOT NULL,
+	`name` VARCHAR(80) NOT NULL,
+	stock INT DEFAULT 0,
+	FOREIGN KEY (id_kategori) REFERENCES kategori(id_kategori)
+);
+
+INSERT INTO kategori (`name`) VALUES 
+('Minuman'), ('Makanan berat'), ('Makanan ringan');
